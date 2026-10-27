@@ -1,36 +1,12 @@
-SOKO FRESH - DAILY TRANSACTIONS PROCESSING SUMMARY
-Run at: 2026-10-27 22:43:13
-
-Files processed: 3
-  transactions_2026-10-01.csv: read 15, accepted 15, rejected 0
-  transactions_2026-10-02.csv: read 16, accepted 9, rejected 7
-  transactions_2026-10-03.csv: read 12, accepted 10, rejected 2
-    note: mapped column 'qty' to 'quantity'
-    note: ignored extra columns: cashier
-
-Rows read:     43
-Rows accepted: 34
-Rows rejected: 9
-Check: 34 + 9 = 43 (OK)
-
-Rejection reasons (a row can have more than one):
-  duplicate transaction_id: 3
-  missing customer_id: 1
-  missing unit_price: 1
-  missing quantity: 1
-  missing branch: 1
-  quantity is not a whole number: 1
-  quantity must be positive: 1
-
-Accepted sales total: KES 22,775
-Sales by branch:
-  Kisumu Mega: KES 4,345
-  Mombasa Nyali: KES 5,000
-  Nairobi CBD: KES 4,450
-  Nairobi Westlands: KES 4,810
-  Nakuru Town: KES 4,170
-
-Outputs:
-  output/consolidated_transactions.csv
-  output/rejected_transactions.csv
-  output/summary.txt
+=== Processing summary ===
+Files discovered:        3
+Files processed:         3
+Files with column issues:1  (transactions_2026-10-03.csv: missing quantity (mapped from qty), extra cashier)
+Rows read:               43
+Rows accepted:           34
+Rows rejected:           9
+  - missing values:      4
+  - invalid numbers:     2
+  - duplicate IDs:       3
+Total revenue (KES):     22,775
+Run finished at:         2026-10-27T22:49:13
